@@ -1,7 +1,7 @@
 {
-    "name": "sanchesmil/controlador-cursos-laravel",
+    "name": "sanchesmil/controlador-series-laravel",
     "type": "project",
-    "description": "Projeto Controlador de Cursos em Laravel.",
+    "description": "The Laravel Framework.",
     "keywords": [
         "framework",
         "laravel"

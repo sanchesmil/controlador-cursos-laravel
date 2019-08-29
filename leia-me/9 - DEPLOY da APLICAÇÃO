@@ -7,45 +7,80 @@
 
     - É interessante que a aplicação (projeto) esteja em um repositório público, como o GitHub ou GitLab.
 
-    * BAIXAR o PROJETO via COMPOSER: 
+    * BAIXAR o PROJETO: 
 
-      Executar o cmd abaixo na pasta de projetos/app dentro do Servidor de Prod.:  
+      O projeto pode ser baixado de algumas formas:
 
-      Cmd> COMPOSER REQUIRE NOME_PROJETO;  
+      1ª FORMA: CLONANDO o REPOSITÓRIO do PROJETO do GITHUB
 
-        Ex.: composer require sanchesmil/buscador-cursos
+        1ª Acessar a pasta do servidor onde o projeto rodará:
 
-      Obs.: * ONDE o COMPOSER BUSCA os PACOTES?
 
-            - Por padrão, no site "PACKAGIST.OR" que é o REPOSITÓRIO PÚBLICO do COMPOSER.
-            - Todavia, pode ser configurado p/ buscar de outros lugares. Ex. GitHub, Repositório Privado
 
-    * BAIXAR as DEPENDÊNCIAS ATUALIZADAS do PROJETO:
+      2ª FOMAR: BAIXANDO o PROJETO do via COMPOSER do PACKAGIST: 
 
-      Cmd> COMPOSER INSTALL --NO-DEV (na raiz do projeto dentro do Servidor de Prod.)
+        2 SITUAÇÕES:
+
+        1 SITUAÇÃO - Se vai baixar um projeto completo (aplicação) do tipo 'project':
+
+            1.1 - Importar o projeto na raiz do servidor ou pasta específica de projetos:   
+
+              CMD> composer create-project <vendor/nome_projeto>
+
+              Exemplor: composer create-project sanchesmil/controlador-cursos-laravel
+
+            1.2 - Configurar as variáveis de conexão com o banco.
+
+            1.3 - Executar as migrations (se for laravel e se existirem).  
+
+        2 SITUAÇÃO - Se vai baixar um projeto do tipo 'library' (biblioteca) para usar no projeto local:
+
+            2.1 - Criar o projeto localmente 
+
+            2.2 - Na raiz do projeto via CMD digitar: 'composer require <vendor/pacote>'
+
+              Exemplo:
+
+              CMD> COMPOSER REQUIRE SANCHESMIL/BUSCADOR-CURSOS
+
+              Obs.: Será criada uma pasta "VENDOR" com todas as dependências baixadas
+
+            2.3 - Configurar o projeto para usar o pacote baixado.
+
+
+        Obs.: * ONDE o COMPOSER BUSCA os PACOTES?
+
+              - Por padrão, no site "PACKAGIST.OR" que é o REPOSITÓRIO PÚBLICO do COMPOSER.
+              - Todavia, pode ser configurado p/ buscar de outros lugares. Ex. GitHub, Repositório Privado
+
+  -----------------------------------------------------------------------
+
+  2º BAIXAR as DEPENDÊNCIAS ATUALIZADAS do PROJETO:
+
+      Cmd> COMPOSER INSTALL --NO-DEV (na raiz do projeto)
 
       Obs.: Dessa forma ele baixa as versões mais atuais das dependencias que estão declaradas na chave 'require' 
             dentro do arquivo 'composer.json', descartando aquelas dependências que estão na chave 'require_dev', 
             as quais não são necessárias no ambiente de produção. 
 
-    * OBS.: NÃO BAIXAR a PASTA 'VENDOR' p/ servidor de Prod:
+    * OBS.: NÃO SUBIR a PASTA 'VENDOR' p/ o repositório do GITHUB:
 
       A pasta "vendor" possui todas as dependências de terceiros do projeto, o que significa que ela é enorme.
 
       Além disso, as dependências sofrem atualizações constantemente.
 
-      Por isso, deve-se incluir no arquivo '.GITIGNORE' a pasta /VENDOR.
+      Por isso, antes de subir para GITHUB deve-se incluir no arquivo '.GITIGNORE' a pasta /VENDOR.
 
-      Dessa forma, quando o projeto for 'baixado' a pasta 'VENDOR' será ignorada e não será baixada.
+      Dessa forma, quando o projeto for 'baixado' não trará a pasta /VENDOR.
 
       Quando rodamos 'COMPOSER ISNTALL' o próprio composer se encarrega de criar uma nova pasta VENDOR 
       e baixar as versões mais atualizadas das dependências declaradas no arquivo 'composer.json'.
 
-  -----------------------------------------------------------------------
+  _______________________________________________________________________
 
-  2º Criar a CHAVE de CRIPTOGRAFIA de SENHAS do LARAVEL (SEGURANÇA)
+  3º Criar a CHAVE de CRIPTOGRAFIA de SENHAS do LARAVEL (SEGURANÇA)
 
-     Na linha de cmd> PHP ARTISAN KEY:GENEREATE
+     Na linha de cmd> PHP ARTISAN KEY:GENERATE
 
      Esse código adiciona uma string à linha APP_KEY do arquivo .ENV.
 
@@ -56,7 +91,8 @@
      alterar esse valor para que ela se mantenha segura.
 
   _______________________________________________________________________
-  3º Alterar a linha APP_ENV do arquivo .ENV para 'prod':
+  
+  4º Alterar a linha APP_ENV do arquivo .ENV para 'prod':
 
      APP_ENV=prod
 
@@ -64,17 +100,19 @@
      informações de como cachear os dados e realizar algumas otimizações internas.
 
   _______________________________________________________________________
-  4º Alterar a linha APP_DEBUG do arquivo .ENV para 'false':
+  
+  5º Alterar a linha APP_DEBUG do arquivo .ENV para 'false':
 
      APP_DEBUG=false
 
      Assim, se a nossa aplicação retornar uma exceção, ao invés de retornar diversas informações
      do projeto/servidor, receberemos somente um 500 Server Error, o que ajuda bastante na segurança.
 
-  -----------------------------------------------------------------------
-  5º Alterar as configurações de CONEXÃO com o BANCO no arquio .ENV:
+  _______________________________________________________________________
 
-     Também precisaremos alterar os dados de conexão com o banco de dados.
+  6º Alterar as configurações de CONEXÃO com o BANCO no arquio '.ENV':
+
+     Alterar os dados de conexão com o banco de dados:
 
      DB_CONNECTION= XXXXXXXXX
      DB_HOST=XXXXXXXX
@@ -82,13 +120,16 @@
      DB_USERNAME= ________
      DB_PASSWORD=_______
 
-  -----------------------------------------------------------------------
-  6º Rodar as MIGRATIONS:
+     Obs.: Se for usar o banco 'SQLITE', deve-se criar o arquivo 'database.sqlite' na raiz da pasta 'database'.
+
+  _______________________________________________________________________
+  
+  7º Rodar as MIGRATIONS:
 
      Depois de criado o banco de dados, precisaremos rodar as migrations, da mesma
      forma que fizemos várias vezes durante o curso.
 
-  -----------------------------------------------------------------------
+  _______________________________________________________________________
 
   Obs.:
 

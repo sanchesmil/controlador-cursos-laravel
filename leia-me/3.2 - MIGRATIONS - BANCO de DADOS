@@ -71,14 +71,14 @@ MIGRATIONS
 
         Cmd> PHP ARTISAN MIGRATE:REFRESH (*) ou CRIANDO UMA NOVA MIGRATION de ALTERAÇÃO (**)
 
-        (*) Este comando atualiza todas as MIGRATIONS, porém apaga todos os dados do banco.
+        (*) Este comando atualiza todas as MIGRATIONS, porém APAGA TODOS OS DADOS do banco.
 
         (**) Para que os dados do banco não sejam perdidos é necessário criar uma nova MIGRATION
         de alteração, com a opção --table setada para o nome da tabela que se deseja alterar.
 
         Exemplo:  cmd> php artisan migrate altera_temporadas_table --table:temporadas
 
-        Após codificar a migration criada, digitar cmd> php artisan migrate
+        Após codificar a migration criada, deve-se executar a migration: cmd> php artisan migrate
 
     - COMO 'RODAR' as MIGRATIONS PENDENTES?
 
