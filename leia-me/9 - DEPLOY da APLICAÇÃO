@@ -13,9 +13,18 @@
 
       1ª FORMA: CLONANDO o REPOSITÓRIO do PROJETO do GITHUB
 
-        1ª Acessar a pasta do servidor onde o projeto rodará:
+        1º Na pasta de projetos:
 
+          CMD>GIT CLONE <nome_repositorio>
 
+          Exemplo: git clone https://github.com/sanchesmil/controlador-series-laravel.git
+
+        2º - Criar o arquivo '.ENV' na raiz do projeto e configurar as variáveis de ambiente,
+             como por exemplo, a conexão com banco. 
+
+             Obs.: Todavia, o uso do arquivo '.env' em produção não é recomendado. 
+
+                   A forma mais segura é criar as variáveis necessárias diretamente no servidor.
 
       2ª FOMAR: BAIXANDO o PROJETO do via COMPOSER do PACKAGIST: 
 
@@ -63,18 +72,28 @@
             dentro do arquivo 'composer.json', descartando aquelas dependências que estão na chave 'require_dev', 
             as quais não são necessárias no ambiente de produção. 
 
-    * OBS.: NÃO SUBIR a PASTA 'VENDOR' p/ o repositório do GITHUB:
+    * OBS.: Arquivo .'GITIGNORE':
 
-      A pasta "vendor" possui todas as dependências de terceiros do projeto, o que significa que ela é enorme.
+        Obs.: 1.1 - NÃO SUBIR a PASTA 'VENDOR' p/ o repositório do GITHUB:
 
-      Além disso, as dependências sofrem atualizações constantemente.
+        A pasta "vendor" possui todas as dependências de terceiros do projeto, o que significa que ela é enorme.
 
-      Por isso, antes de subir para GITHUB deve-se incluir no arquivo '.GITIGNORE' a pasta /VENDOR.
+        Além disso, as dependências sofrem atualizações constantemente.
 
-      Dessa forma, quando o projeto for 'baixado' não trará a pasta /VENDOR.
+        Por isso, antes de subir para GITHUB deve-se incluir no arquivo '.GITIGNORE' a pasta /VENDOR.
 
-      Quando rodamos 'COMPOSER ISNTALL' o próprio composer se encarrega de criar uma nova pasta VENDOR 
-      e baixar as versões mais atualizadas das dependências declaradas no arquivo 'composer.json'.
+        Dessa forma, quando o projeto for 'baixado' não trará a pasta /VENDOR.
+
+        Quando rodamos 'COMPOSER ISNTALL' o próprio composer se encarrega de criar uma nova pasta VENDOR 
+        e baixar as versões mais atualizadas das dependências declaradas no arquivo 'composer.json'.
+
+
+        Obs.: 1.2 - NÃO SUBIR o arquivo '.ENV' p/ o repositório do GITHUB:
+
+        O uso do arquivo '.env' em produção não é recomendado. 
+
+        A forma mais segura é criar as variáveis necessárias diretamente no servidor, 
+        para que nenhuma informação sensível esteja armazenada em texto puro.
 
   _______________________________________________________________________
 
@@ -134,7 +153,7 @@
   Obs.:
 
      A menos que não seja possível, você não deve deixar seu arquivo .env em produção.
-     Em hospedagens compartilhadas, por exemplo, normalmente NÃO é possível gerenciar
+     Todavia, em hospedagens compartilhadas, por exemplo, normalmente NÃO é possível gerenciar
      variáveis de ambiente.
      Mas caso você tenha controle sobre as variáveis de ambiente da sua aplicação,
      não faça uso do arquivo .env.
