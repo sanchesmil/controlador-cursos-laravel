@@ -33,5 +33,8 @@
     No browser, basta digitar a URL do serviço/endpoint/rota e os dados serão retornados em JSON.
 
     Ex.: http://localhost:8000/api/serie   (deve-se colocar /api/ quando se trata de solicitação de serviços via API)
+	
+	
+	
 
 
