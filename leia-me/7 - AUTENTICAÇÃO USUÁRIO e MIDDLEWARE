@@ -35,7 +35,9 @@
 
 
                 Ex: public function index(Request $request){
-                        if (!Auth::check()){
+
+                        // Verifica se o usuário está logado
+                        if (!Auth::check()){      
                             echo Não autenticado!
                             exit();
                         }

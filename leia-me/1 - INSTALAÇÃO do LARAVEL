@@ -9,7 +9,8 @@ CONFIGURAÇÃO de AMBIENTE:
 
   Baixar o Composer e instalá-lo
 
-  Se você estiver no Windows, dentro do diretório do PHP, copie e cole o arquivo php.ini-development, renomeando-o para php.ini. Em seguida, dentro deste arquivo, remova o ponto-e-vírgula da frente da seguinte linha:
+  Se você estiver no Windows, dentro do diretório do PHP, copie e cole o arquivo php.ini-development, 
+  renomeando-o para php.ini. Em seguida, dentro deste arquivo, remova o ponto-e-vírgula da frente da seguinte linha:
   
          - extension=pdo_sqlite
 

@@ -72,7 +72,7 @@
             dentro do arquivo 'composer.json', descartando aquelas dependências que estão na chave 'require_dev', 
             as quais não são necessárias no ambiente de produção. 
 
-    * OBS.: Arquivo .'GITIGNORE':
+    * OBS.: Arquivo '.GITIGNORE':
 
         Obs.: 1.1 - NÃO SUBIR a PASTA 'VENDOR' p/ o repositório do GITHUB:
 
@@ -80,9 +80,11 @@
 
         Além disso, as dependências sofrem atualizações constantemente.
 
-        Por isso, antes de subir para GITHUB deve-se incluir no arquivo '.GITIGNORE' a pasta /VENDOR.
+        Por isso, antes de subir para GITHUB deve-se incluir no arquivo '.GITIGNORE' a pasta VENDOR.
 
-        Dessa forma, quando o projeto for 'baixado' não trará a pasta /VENDOR.
+        Ex. Dentro do arquivo '.gitignore' adicionar: /vendor
+
+        Dessa forma, quando o projeto for 'baixado' não trará a pasta VENDOR.
 
         Quando rodamos 'COMPOSER ISNTALL' o próprio composer se encarrega de criar uma nova pasta VENDOR 
         e baixar as versões mais atualizadas das dependências declaradas no arquivo 'composer.json'.

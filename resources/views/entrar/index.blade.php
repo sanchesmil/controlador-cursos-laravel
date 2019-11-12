@@ -9,7 +9,7 @@
 @section('conteudo')
 
     <!-- Exibe os erros de validação (padrão do Laravel) -->
-    @include('erros', ['errors'=>$errors])     <!-- Inclui a página de erros passando os $errors que vieram do controller -->
+    @include('erros', ['errors'=>$errors])     <!-- Inclui a página 'erros' passando a variável 'errors' com os erros ($errors) vieram do controller -->
 
     <form method="post">  <!-- Submete para esta mesma página -->
         @csrf

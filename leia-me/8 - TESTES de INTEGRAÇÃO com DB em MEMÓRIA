@@ -40,18 +40,12 @@
 
     Ex.: php artisan make:test TemporadaTest --Unit
 
-         Neste caso, cria a classe de testes 'TemporadaTest' na pasta 'Unit'.
+         Neste caso, cria a classe de testes 'TemporadaTest' na pasta 'Unit' dentro da pasta 'tests'.
 
  COMO rodar os TESTES?
 
     Na raiz do projeto executar o comando:
 
-    cmd> VENDOR\BIN\PHPUNIT
+    cmd> VENDOR\BIN\PHPUNIT   (no Windows)  ou 
 
-
-
-
-
-
-
-
+    cmd> VENDOR/BIN/PHPUNIT   (no Linux / Git Bash)

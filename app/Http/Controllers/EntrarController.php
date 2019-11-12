@@ -23,7 +23,7 @@ class EntrarController extends Controller
     {
         $dadosRequisicao = $request->only(['email','password']);  // Retorna um array associativo já preenchido com os valores da view
 
-        if(!Auth::attempt($dadosRequisicao)){                     // tenta realizar o login do usuário
+        if(!Auth::attempt($dadosRequisicao)){                     // tenta realizar o login do usuário, se conseguir salva na sessão as info do usuário
             return redirect()
                 ->back()                                          // Redireciona p/ página anterior
                 ->withErrors('Usuário e/ou senha incorretos.');   // Define e retorna msg de erro

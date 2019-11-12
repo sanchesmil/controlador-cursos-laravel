@@ -42,8 +42,8 @@ Route::get('/temporadas/{temporadaId}/episodios', 'EpisodiosController@index');
 Route::post('/temporadas/{temporadaId}/episodios/assistir', 'EpisodiosController@assistir')  // Marcar os episódios como assistidos
     ->middleware('autenticador');
 
-
-Auth::routes();
+//Auth::routes() é uma classe auxiliar que ajuda a gerar todas as rotas necessárias para a autenticação do usuário
+Auth::routes();  //criará algumas rotas por padrão que não são mostradas no arquivo routes
 
 Route::get('/home', 'HomeController@index')->name('home');
 

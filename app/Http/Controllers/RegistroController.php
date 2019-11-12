@@ -25,12 +25,11 @@ class RegistroController extends Controller
 
         $data['password'] = Hash::make($data['password']); // Realiza a criptografia da senha criando um Hash (Padrão do Laravel)
 
-        $user = User::create($data);                      // Cria um usuário
+        $user = User::create($data);                      // Cria um usuário no banco
 
-        Auth::login($user);                                // Realiza o login/cadastro do usuário no banco
+        Auth::login($user);                                // Autentica o novo usuário no sistema
 
         return redirect()->route('listar_series');
-
 
     }
 }
